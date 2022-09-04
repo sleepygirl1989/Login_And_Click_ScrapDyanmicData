@@ -18,6 +18,7 @@ def get_driver():
   return driver
 
 def scrap_data(text):
+  #Remove text value and pass on dynamic value 
   output=float(text.split(":")[1])
   return output
 
@@ -33,7 +34,6 @@ def main():
   time.sleep(2)
   return(scrap_data(element.text))
   
-
 print(main())
 
   
