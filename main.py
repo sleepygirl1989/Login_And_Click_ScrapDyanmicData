@@ -17,6 +17,10 @@ def get_driver():
 
   return driver
 
+def scrap_data(text):
+  output=float(text.split(":")[1])
+  return output
+
 def main():
   driver=get_driver()
   driver.find_element(by="id",value="id_username").send_keys("automated")
@@ -25,7 +29,9 @@ def main():
   time.sleep(0.5)
   driver.find_element(by="xpath" , value = "/html/body/nav/div/a").click()
   time.sleep(0.5)
-  print(driver.current_url)
+  element=driver.find_element(by="xpath" ,value = "/html/body/div[1]/div/h1[2]")
+  time.sleep(2)
+  return(scrap_data(element.text))
   
 
 print(main())
